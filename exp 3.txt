@@ -1,0 +1,561 @@
+mysql> show databases;
+mysql> show databases;
+mysql> desc faculty;
++--------------------+
++--------------------+
++----------+-------------+------+-----+---------+-------+
+| Database           |
+| Database           |
+| Field    | Type        | Null | Key | Default | Extra |
++--------------------+
++--------------------+
++----------+-------------+------+-----+---------+-------+
+| information_schema |
+| information_schema |
+| Facno    | int(11)     | NO   | PRI | 0       |       |
+| clg                |
+| clg                |
+| Facname  | varchar(30) | YES  |     | NULL    |       |
+| mysql              |
+| mysql              |
+| Gender   | varchar(30) | YES  |     | NULL    |       |
+| performance_schema |
+| performance_schema |
+| DOB      | int(11)     | YES  |     | NULL    |       |
+| school             |
+| school             |
+| DOJ      | int(11)     | YES  |     | NULL    |       |
+| test               |
+| test               |
+| Mobileno | int(11)     | YES  |     | NULL    |       |
++--------------------+
++--------------------+
+| Deptno   | varchar(10) | YES  |     | NULL    |       |
+6 rows in set (0.28 sec)
+6 rows in set (0.28 sec)
++----------+-------------+------+-----+---------+-------+
+
+
+7 rows in set (0.02 sec)
+mysql> use clg;
+mysql> use clg;
+
+Database changed
+Database changed
+mysql> insert into faculty values(123, "ARAVIND", "F", 17, 6, 551126, "CSE");
+mysql> show tables
+mysql> show tables
+Query OK, 1 row affected (0.03 sec)
+    -> j;
+    -> j;
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'j' at line 2
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'j' at line 2
+mysql> select * from faculty;
+mysql> show tables;
+mysql> show tables;
++-------+---------+--------+------+------+----------+--------+
++---------------+
++---------------+
+| Facno | Facname | Gender | DOB  | DOJ  | Mobileno | Deptno |
+| Tables_in_clg |
+| Tables_in_clg |
++-------+---------+--------+------+------+----------+--------+
++---------------+
++---------------+
+|   123 | ARAVIND | F      |   17 |    6 |   551126 | CSE    |
+| courses       |
+| courses       |
+|   142 | ANU     | F      |   11 |   16 |   522412 | AI     |
+| department    |
+| department    |
++-------+---------+--------+------+------+----------+--------+
+| faculty       |
+| faculty       |
+2 rows in set (0.00 sec)
+| student       |
+| student       |
+
++---------------+
++---------------+
+mysql> update student set Facno=123 where name="shivn";
+4 rows in set (0.77 sec)
+4 rows in set (0.77 sec)
+ERROR 1054 (42S22): Unknown column 'Facno' in 'field list'
+
+
+mysql> update faculty set Facno=123 where name="shivn";
+mysql> use faculty;
+mysql> use faculty;
+ERROR 1054 (42S22): Unknown column 'name' in 'where clause'
+ERROR 1049 (42000): Unknown database 'faculty'
+ERROR 1049 (42000): Unknown database 'faculty'
+mysql> update faculty set Facno=123 where Facname="shivn";
+mysql> desc faculty;
+mysql> desc faculty;
+Query OK, 0 rows affected (0.06 sec)
++----------+-------------+------+-----+---------+-------+
++----------+-------------+------+-----+---------+-------+
+Rows matched: 0  Changed: 0  Warnings: 0
+| Field    | Type        | Null | Key | Default | Extra |
+| Field    | Type        | Null | Key | Default | Extra |
+
++----------+-------------+------+-----+---------+-------+
++----------+-------------+------+-----+---------+-------+
+mysql> select * from faculty;
+| Facno    | int(11)     | NO   | PRI | 0       |       |
+| Facno    | int(11)     | NO   | PRI | 0       |       |
++-------+---------+--------+------+------+----------+--------+
+| Facname  | varchar(30) | YES  |     | NULL    |       |
+| Facname  | varchar(30) | YES  |     | NULL    |       |
+| Facno | Facname | Gender | DOB  | DOJ  | Mobileno | Deptno |
+| Gender   | varchar(30) | YES  |     | NULL    |       |
+| Gender   | varchar(30) | YES  |     | NULL    |       |
++-------+---------+--------+------+------+----------+--------+
+| DOB      | int(11)     | YES  |     | NULL    |       |
+| DOB      | int(11)     | YES  |     | NULL    |       |
+|   123 | ARAVIND | F      |   17 |    6 |   551126 | CSE    |
+| DOJ      | int(11)     | YES  |     | NULL    |       |
+| DOJ      | int(11)     | YES  |     | NULL    |       |
+|   142 | ANU     | F      |   11 |   16 |   522412 | AI     |
+| Mobileno | int(11)     | YES  |     | NULL    |       |
+| Mobileno | int(11)     | YES  |     | NULL    |       |
++-------+---------+--------+------+------+----------+--------+
+| Deptno   | varchar(10) | YES  |     | NULL    |       |
+| Deptno   | varchar(10) | YES  |     | NULL    |       |
+2 rows in set (0.00 sec)
++----------+-------------+------+-----+---------+-------+
++----------+-------------+------+-----+---------+-------+
+
+7 rows in set (0.09 sec)
+7 rows in set (0.09 sec)
+mysql> update student set Facname="shivn" where Facno=123;
+
+
+ERROR 1054 (42S22): Unknown column 'Facno' in 'where clause'
+mysql> insert into faculty("A","ANU","F",11,16,522412,"AI");
+mysql> insert into faculty("A","ANU","F",11,16,522412,"AI");
+mysql> update faculty set Facname="shivn" where Facno=123;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"A","ANU","F",11,16,522412,"AI")' at line 1
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"A","ANU","F",11,16,522412,"AI")' at line 1
+Query OK, 1 row affected (0.25 sec)
+mysql> insert into faculty("142", "ANU", "F", 11, 16, 522412," AI");
+mysql> insert into faculty("142", "ANU", "F", 11, 16, 522412," AI");
+Rows matched: 1  Changed: 1  Warnings: 0
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"142", "ANU", "F", 11, 16, 522412," AI")' at line 1
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"142", "ANU", "F", 11, 16, 522412," AI")' at line 1
+
+mysql> insert into faculty("142", "ANU", "F", 11, 16, 522412, "AI");
+mysql> insert into faculty("142", "ANU", "F", 11, 16, 522412, "AI");
+mysql> desc faculty;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"142", "ANU", "F", 11, 16, 522412, "AI")' at line 1
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"142", "ANU", "F", 11, 16, 522412, "AI")' at line 1
++----------+-------------+------+-----+---------+-------+
+mysql> insert into faculty values("142", "ANU", "F", 11, 16, 522412, "AI");
+mysql> insert into faculty values("142", "ANU", "F", 11, 16, 522412, "AI");
+| Field    | Type        | Null | Key | Default | Extra |
+Query OK, 1 row affected (2.00 sec)
+Query OK, 1 row affected (2.00 sec)
++----------+-------------+------+-----+---------+-------+
+
+
+| Facno    | int(11)     | NO   | PRI | 0       |       |
+mysql> select * from faculty;
+mysql> select * from faculty;
+| Facname  | varchar(30) | YES  |     | NULL    |       |
++-------+---------+--------+------+------+----------+--------+
++-------+---------+--------+------+------+----------+--------+
+| Gender   | varchar(30) | YES  |     | NULL    |       |
+| Facno | Facname | Gender | DOB  | DOJ  | Mobileno | Deptno |
+| Facno | Facname | Gender | DOB  | DOJ  | Mobileno | Deptno |
+| DOB      | int(11)     | YES  |     | NULL    |       |
++-------+---------+--------+------+------+----------+--------+
++-------+---------+--------+------+------+----------+--------+
+| DOJ      | int(11)     | YES  |     | NULL    |       |
+|   142 | ANU     | F      |   11 |   16 |   522412 | AI     |
+|   142 | ANU     | F      |   11 |   16 |   522412 | AI     |
+| Mobileno | int(11)     | YES  |     | NULL    |       |
++-------+---------+--------+------+------+----------+--------+
++-------+---------+--------+------+------+----------+--------+
+| Deptno   | varchar(10) | YES  |     | NULL    |       |
+1 row in set (0.33 sec)
+1 row in set (0.33 sec)
++----------+-------------+------+-----+---------+-------+
+
+
+7 rows in set (0.11 sec)
+mysql> desc faculty;
+mysql> desc faculty;
+
++----------+-------------+------+-----+---------+-------+
++----------+-------------+------+-----+---------+-------+
+mysql> select * from faculty;
+| Field    | Type        | Null | Key | Default | Extra |
+| Field    | Type        | Null | Key | Default | Extra |
++-------+---------+--------+------+------+----------+--------+
++----------+-------------+------+-----+---------+-------+
++----------+-------------+------+-----+---------+-------+
+| Facno | Facname | Gender | DOB  | DOJ  | Mobileno | Deptno |
+| Facno    | int(11)     | NO   | PRI | 0       |       |
+| Facno    | int(11)     | NO   | PRI | 0       |       |
++-------+---------+--------+------+------+----------+--------+
+| Facname  | varchar(30) | YES  |     | NULL    |       |
+| Facname  | varchar(30) | YES  |     | NULL    |       |
+|   123 | shivn   | F      |   17 |    6 |   551126 | CSE    |
+| Gender   | varchar(30) | YES  |     | NULL    |       |
+| Gender   | varchar(30) | YES  |     | NULL    |       |
+|   142 | ANU     | F      |   11 |   16 |   522412 | AI     |
+| DOB      | int(11)     | YES  |     | NULL    |       |
+| DOB      | int(11)     | YES  |     | NULL    |       |
++-------+---------+--------+------+------+----------+--------+
+| DOJ      | int(11)     | YES  |     | NULL    |       |
+| DOJ      | int(11)     | YES  |     | NULL    |       |
+2 rows in set (0.01 sec)
+| Mobileno | int(11)     | YES  |     | NULL    |       |
+| Mobileno | int(11)     | YES  |     | NULL    |       |
+
+| Deptno   | varchar(10) | YES  |     | NULL    |       |
+| Deptno   | varchar(10) | YES  |     | NULL    |       |
+mysql> delete from faculty where Facno="shivn;
++----------+-------------+------+-----+---------+-------+
++----------+-------------+------+-----+---------+-------+
+    "> insgg;;;;;;;;;;;;;;;;
+7 rows in set (0.02 sec)
+7 rows in set (0.02 sec)
+    "> 88
+
+
+    ">
+mysql> insert into faculty values(123, "ARAVIND", "F", 17, 6, 551126, "CSE");
+mysql> insert into faculty values(123, "ARAVIND", "F", 17, 6, 551126, "CSE");
+    ">
+Query OK, 1 row affected (0.03 sec)
+Query OK, 1 row affected (0.03 sec)
+    "> delete from facult90o where Facno="shivn;
+
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'shivn' at line 1
+mysql> select * from faculty;
+mysql> select * from faculty;
+mysql> delete from facult90o where Facname="shivn";
++-------+---------+--------+------+------+----------+--------+
++-------+---------+--------+------+------+----------+--------+
+ERROR 1146 (42S02): Table 'clg.facult90o' doesn't exist
+| Facno | Facname | Gender | DOB  | DOJ  | Mobileno | Deptno |
+| Facno | Facname | Gender | DOB  | DOJ  | Mobileno | Deptno |
+mysql> delete from facult where Facname="shivn";
++-------+---------+--------+------+------+----------+--------+
++-------+---------+--------+------+------+----------+--------+
+ERROR 1146 (42S02): Table 'clg.facult' doesn't exist
+|   123 | ARAVIND | F      |   17 |    6 |   551126 | CSE    |
+|   123 | ARAVIND | F      |   17 |    6 |   551126 | CSE    |
+mysql> delete from faculty where Facname="shivn";
+|   142 | ANU     | F      |   11 |   16 |   522412 | AI     |
+|   142 | ANU     | F      |   11 |   16 |   522412 | AI     |
+Query OK, 1 row affected (0.38 sec)
++-------+---------+--------+------+------+----------+--------+
++-------+---------+--------+------+------+----------+--------+
+
+2 rows in set (0.00 sec)
+2 rows in set (0.00 sec)
+mysql> select * from faculty;
+
+
++-------+---------+--------+------+------+----------+--------+
+mysql> update student set Facno=123 where name="shivn";
+mysql> update student set Facno=123 where name="shivn";
+| Facno | Facname | Gender | DOB  | DOJ  | Mobileno | Deptno |
+ERROR 1054 (42S22): Unknown column 'Facno' in 'field list'
+ERROR 1054 (42S22): Unknown column 'Facno' in 'field list'
++-------+---------+--------+------+------+----------+--------+
+mysql> update faculty set Facno=123 where name="shivn";
+mysql> update faculty set Facno=123 where name="shivn";
+|   142 | ANU     | F      |   11 |   16 |   522412 | AI     |
+ERROR 1054 (42S22): Unknown column 'name' in 'where clause'
+ERROR 1054 (42S22): Unknown column 'name' in 'where clause'
++-------+---------+--------+------+------+----------+--------+
+mysql> update faculty set Facno=123 where Facname="shivn";
+mysql> update faculty set Facno=123 where Facname="shivn";
+1 row in set (0.64 sec)
+Query OK, 0 rows affected (0.06 sec)
+Query OK, 0 rows affected (0.06 sec)
+
+Rows matched: 0  Changed: 0  Warnings: 0
+Rows matched: 0  Changed: 0  Warnings: 0
+mysql>
+
+
+
+mysql> select * from faculty;
+mysql> select * from faculty;
+
++-------+---------+--------+------+------+----------+--------+
++-------+---------+--------+------+------+----------+--------+
+| Facno | Facname | Gender | DOB  | DOJ  | Mobileno | Deptno |
+| Facno | Facname | Gender | DOB  | DOJ  | Mobileno | Deptno |
++-------+---------+--------+------+------+----------+--------+
++-------+---------+--------+------+------+----------+--------+
+|   123 | ARAVIND | F      |   17 |    6 |   551126 | CSE    |
+|   123 | ARAVIND | F      |   17 |    6 |   551126 | CSE    |
+|   142 | ANU     | F      |   11 |   16 |   522412 | AI     |
+|   142 | ANU     | F      |   11 |   16 |   522412 | AI     |
++-------+---------+--------+------+------+----------+--------+
++-------+---------+--------+------+------+----------+--------+
+2 rows in set (0.00 sec)
+2 rows in set (0.00 sec)
+
+
+mysql> update student set Facname="shivn" where Facno=123;
+mysql> update student set Facname="shivn" where Facno=123;
+ERROR 1054 (42S22): Unknown column 'Facno' in 'where clause'
+ERROR 1054 (42S22): Unknown column 'Facno' in 'where clause'
+mysql> update faculty set Facname="shivn" where Facno=123;
+mysql> update faculty set Facname="shivn" where Facno=123;
+Query OK, 1 row affected (0.25 sec)
+Query OK, 1 row affected (0.25 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+Rows matched: 1  Changed: 1  Warnings: 0
+
+
+mysql> desc faculty;
+mysql> desc faculty;
++----------+-------------+------+-----+---------+-------+
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
++----------+-------------+------+-----+---------+-------+
+| Facno    | int(11)     | NO   | PRI | 0       |       |
+| Facno    | int(11)     | NO   | PRI | 0       |       |
+| Facname  | varchar(30) | YES  |     | NULL    |       |
+| Facname  | varchar(30) | YES  |     | NULL    |       |
+| Gender   | varchar(30) | YES  |     | NULL    |       |
+| Gender   | varchar(30) | YES  |     | NULL    |       |
+| DOB      | int(11)     | YES  |     | NULL    |       |
+| DOB      | int(11)     | YES  |     | NULL    |       |
+| DOJ      | int(11)     | YES  |     | NULL    |       |
+| DOJ      | int(11)     | YES  |     | NULL    |       |
+| Mobileno | int(11)     | YES  |     | NULL    |       |
+| Mobileno | int(11)     | YES  |     | NULL    |       |
+| Deptno   | varchar(10) | YES  |     | NULL    |       |
+| Deptno   | varchar(10) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
++----------+-------------+------+-----+---------+-------+
+7 rows in set (0.11 sec)
+7 rows in set (0.11 sec)
+
+
+mysql> select * from faculty;
+mysql> select * from faculty;
++-------+---------+--------+------+------+----------+--------+
++-------+---------+--------+------+------+----------+--------+
+| Facno | Facname | Gender | DOB  | DOJ  | Mobileno | Deptno |
+| Facno | Facname | Gender | DOB  | DOJ  | Mobileno | Deptno |
++-------+---------+--------+------+------+----------+--------+
++-------+---------+--------+------+------+----------+--------+
+|   123 | shivn   | F      |   17 |    6 |   551126 | CSE    |
+|   123 | shivn   | F      |   17 |    6 |   551126 | CSE    |
+|   142 | ANU     | F      |   11 |   16 |   522412 | AI     |
+|   142 | ANU     | F      |   11 |   16 |   522412 | AI     |
++-------+---------+--------+------+------+----------+--------+
++-------+---------+--------+------+------+----------+--------+
+2 rows in set (0.01 sec)
+2 rows in set (0.01 sec)
+
+
+mysql> delete from faculty where Facno="shivn;
+mysql> delete from faculty where Facno="shivn;
+    "> insgg;;;;;;;;;;;;;;;;
+    "> insgg;;;;;;;;;;;;;;;;
+    "> 88
+    "> 88
+    ">
+    ">
+    ">
+    ">
+    "> delete from facult90o where Facno="shivn;
+    "> delete from facult90o where Facno="shivn;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'shivn' at line 1
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'shivn' at line 1
+mysql> delete from facult90o where Facname="shivn";
+mysql> delete from facult90o where Facname="shivn";
+ERROR 1146 (42S02): Table 'clg.facult90o' doesn't exist
+ERROR 1146 (42S02): Table 'clg.facult90o' doesn't exist
+mysql> delete from facult where Facname="shivn";
+mysql> delete from facult where Facname="shivn";
+ERROR 1146 (42S02): Table 'clg.facult' doesn't exist
+ERROR 1146 (42S02): Table 'clg.facult' doesn't exist
+mysql> delete from faculty where Facname="shivn";
+mysql> delete from faculty where Facname="shivn";
+Query OK, 1 row affected (0.38 sec)
+Query OK, 1 row affected (0.38 sec)
+
+
+mysql> select * from faculty;
+mysql> select * from faculty;
++-------+---------+--------+------+------+----------+--------+
++-------+---------+--------+------+------+----------+--------+
+| Facno | Facname | Gender | DOB  | DOJ  | Mobileno | Deptno |
+| Facno | Facname | Gender | DOB  | DOJ  | Mobileno | Deptno |
++-------+---------+--------+------+------+----------+--------+
++-------+---------+--------+------+------+----------+--------+
+|   142 | ANU     | F      |   11 |   16 |   522412 | AI     |
+|   142 | ANU     | F      |   11 |   16 |   522412 | AI     |
++-------+---------+--------+------+------+----------+--------+
++-------+---------+--------+------+------+----------+--------+
+1 row in set (0.64 sec)
+1 row in set (0.64 sec)mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| clg                |
+| mysql              |
+| performance_schema |
+| school             |
+| test               |
++--------------------+
+6 rows in set (0.28 sec)
+
+mysql> use clg;
+Database changed
+mysql> show tables
+    -> j;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'j' at line 2
+mysql> show tables;
++---------------+
+| Tables_in_clg |
++---------------+
+| courses       |
+| department    |
+| faculty       |
+| student       |
++---------------+
+4 rows in set (0.77 sec)
+
+mysql> use faculty;
+ERROR 1049 (42000): Unknown database 'faculty'
+mysql> desc faculty;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| Facno    | int(11)     | NO   | PRI | 0       |       |
+| Facname  | varchar(30) | YES  |     | NULL    |       |
+| Gender   | varchar(30) | YES  |     | NULL    |       |
+| DOB      | int(11)     | YES  |     | NULL    |       |
+| DOJ      | int(11)     | YES  |     | NULL    |       |
+| Mobileno | int(11)     | YES  |     | NULL    |       |
+| Deptno   | varchar(10) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+7 rows in set (0.09 sec)
+
+mysql> insert into faculty("A","ANU","F",11,16,522412,"AI");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"A","ANU","F",11,16,522412,"AI")' at line 1
+mysql> insert into faculty("142", "ANU", "F", 11, 16, 522412," AI");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"142", "ANU", "F", 11, 16, 522412," AI")' at line 1
+mysql> insert into faculty("142", "ANU", "F", 11, 16, 522412, "AI");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"142", "ANU", "F", 11, 16, 522412, "AI")' at line 1
+mysql> insert into faculty values("142", "ANU", "F", 11, 16, 522412, "AI");
+Query OK, 1 row affected (2.00 sec)
+
+mysql> select * from faculty;
++-------+---------+--------+------+------+----------+--------+
+| Facno | Facname | Gender | DOB  | DOJ  | Mobileno | Deptno |
++-------+---------+--------+------+------+----------+--------+
+|   142 | ANU     | F      |   11 |   16 |   522412 | AI     |
++-------+---------+--------+------+------+----------+--------+
+1 row in set (0.33 sec)
+
+mysql> desc faculty;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| Facno    | int(11)     | NO   | PRI | 0       |       |
+| Facname  | varchar(30) | YES  |     | NULL    |       |
+| Gender   | varchar(30) | YES  |     | NULL    |       |
+| DOB      | int(11)     | YES  |     | NULL    |       |
+| DOJ      | int(11)     | YES  |     | NULL    |       |
+| Mobileno | int(11)     | YES  |     | NULL    |       |
+| Deptno   | varchar(10) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+7 rows in set (0.02 sec)
+
+mysql> insert into faculty values(123, "ARAVIND", "F", 17, 6, 551126, "CSE");
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select * from faculty;
++-------+---------+--------+------+------+----------+--------+
+| Facno | Facname | Gender | DOB  | DOJ  | Mobileno | Deptno |
++-------+---------+--------+------+------+----------+--------+
+|   123 | ARAVIND | F      |   17 |    6 |   551126 | CSE    |
+|   142 | ANU     | F      |   11 |   16 |   522412 | AI     |
++-------+---------+--------+------+------+----------+--------+
+2 rows in set (0.00 sec)
+
+mysql> update student set Facno=123 where name="shivn";
+ERROR 1054 (42S22): Unknown column 'Facno' in 'field list'
+mysql> update faculty set Facno=123 where name="shivn";
+ERROR 1054 (42S22): Unknown column 'name' in 'where clause'
+mysql> update faculty set Facno=123 where Facname="shivn";
+Query OK, 0 rows affected (0.06 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> select * from faculty;
++-------+---------+--------+------+------+----------+--------+
+| Facno | Facname | Gender | DOB  | DOJ  | Mobileno | Deptno |
++-------+---------+--------+------+------+----------+--------+
+|   123 | ARAVIND | F      |   17 |    6 |   551126 | CSE    |
+|   142 | ANU     | F      |   11 |   16 |   522412 | AI     |
++-------+---------+--------+------+------+----------+--------+
+2 rows in set (0.00 sec)
+
+mysql> update student set Facname="shivn" where Facno=123;
+ERROR 1054 (42S22): Unknown column 'Facno' in 'where clause'
+mysql> update faculty set Facname="shivn" where Facno=123;
+Query OK, 1 row affected (0.25 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> desc faculty;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| Facno    | int(11)     | NO   | PRI | 0       |       |
+| Facname  | varchar(30) | YES  |     | NULL    |       |
+| Gender   | varchar(30) | YES  |     | NULL    |       |
+| DOB      | int(11)     | YES  |     | NULL    |       |
+| DOJ      | int(11)     | YES  |     | NULL    |       |
+| Mobileno | int(11)     | YES  |     | NULL    |       |
+| Deptno   | varchar(10) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+7 rows in set (0.11 sec)
+
+mysql> select * from faculty;
++-------+---------+--------+------+------+----------+--------+
+| Facno | Facname | Gender | DOB  | DOJ  | Mobileno | Deptno |
++-------+---------+--------+------+------+----------+--------+
+|   123 | shivn   | F      |   17 |    6 |   551126 | CSE    |
+|   142 | ANU     | F      |   11 |   16 |   522412 | AI     |
++-------+---------+--------+------+------+----------+--------+
+2 rows in set (0.01 sec)
+
+mysql> delete from faculty where Facno="shivn;
+    "> insgg;;;;;;;;;;;;;;;;
+    "> 88
+    ">
+    ">
+    "> delete from facult90o where Facno="shivn;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'shivn' at line 1
+mysql> delete from facult90o where Facname="shivn";
+ERROR 1146 (42S02): Table 'clg.facult90o' doesn't exist
+mysql> delete from facult where Facname="shivn";
+ERROR 1146 (42S02): Table 'clg.facult' doesn't exist
+mysql> delete from faculty where Facname="shivn";
+Query OK, 1 row affected (0.38 sec)
+
+mysql> select * from faculty;
++-------+---------+--------+------+------+----------+--------+
+| Facno | Facname | Gender | DOB  | DOJ  | Mobileno | Deptno |
++-------+---------+--------+------+------+----------+--------+
+|   142 | ANU     | F      |   11 |   16 |   522412 | AI     |
++-------+---------+--------+------+------+----------+--------+
+1 row in set (0.64 sec)

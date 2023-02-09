@@ -1,0 +1,88 @@
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| clg                |
+| mysql              |
+| performance_schema |
+| school             |
+| test               |
++--------------------+
+6 rows in set (0.00 sec)
+
+mysql> use clg;
+Database changed
+mysql> show tables;
++---------------+
+| Tables_in_clg |
++---------------+
+| courses       |
+| department    |
+| faculty       |
+| student       |
+| t67           |
++---------------+
+5 rows in set (0.05 sec)
+
+mysql> select * from t67;
++------+----------+------------+-------+
+| sno  | courseno | coursename | marks |
++------+----------+------------+-------+
+|    1 |     1111 | cricket    |   100 |
+|    2 |     1112 | football   |   100 |
+|    3 |     1113 | kbd        |    88 |
+|    4 |     1114 | volleyball |    60 |
+|    5 |     1115 | basketball |    40 |
++------+----------+------------+-------+
+5 rows in set (0.22 sec)
+
+mysql> insert into
+    ->
+    -> j;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 3
+mysql> insert into t67 value(6, 1116, "tennis", 50);
+Query OK, 1 row affected (0.22 sec)
+
+mysql> insert into t67 value(7, 1117, "badmiton"
+    -> j;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'j' at line 2
+mysql> insert into t67 value(7, 1117, "badmiton", 70);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select * from t67;
++------+----------+------------+-------+
+| sno  | courseno | coursename | marks |
++------+----------+------------+-------+
+|    1 |     1111 | cricket    |   100 |
+|    2 |     1112 | football   |   100 |
+|    3 |     1113 | kbd        |    88 |
+|    4 |     1114 | volleyball |    60 |
+|    5 |     1115 | basketball |    40 |
+|    6 |     1116 | tennis     |    50 |
+|    7 |     1117 | badmiton   |    70 |
++------+----------+------------+-------+
+7 rows in set (0.00 sec)
+
+mysql> select * from t67 where marks<=40;
++------+----------+------------+-------+
+| sno  | courseno | coursename | marks |
++------+----------+------------+-------+
+|    5 |     1115 | basketball |    40 |
++------+----------+------------+-------+
+1 row in set (1.78 sec)
+
+mysql> select * from t67 where courseno
+    -> ;
++------+----------+------------+-------+
+| sno  | courseno | coursename | marks |
++------+----------+------------+-------+
+|    1 |     1111 | cricket    |   100 |
+|    2 |     1112 | football   |   100 |
+|    3 |     1113 | kbd        |    88 |
+|    4 |     1114 | volleyball |    60 |
+|    5 |     1115 | basketball |    40 |
+|    6 |     1116 | tennis     |    50 |
+|    7 |     1117 | badmiton   |    70 |

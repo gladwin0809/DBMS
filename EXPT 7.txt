@@ -1,0 +1,38 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| clg                |
+| mysql              |
+| performance_schema |
+| school             |
+| test               |
++--------------------+
+6 rows in set (0.66 sec)
+
+mysql> use clg;
+Database changed
+mysql> select * from t67;
++------+----------+------------+-------+
+| sno  | courseno | coursename | marks |
++------+----------+------------+-------+
+|    1 |     1111 | cricket    |   100 |
+|    2 |     1112 | football   |   100 |
+|    3 |     1113 | kbd        |    88 |
+|    4 |     1114 | volleyball |    60 |
+|    5 |     1115 | basketball |    40 |
+|    6 |     1116 | tennis     |    50 |
+|    7 |     1117 | badmiton   |    70 |
++------+----------+------------+-------+
+7 rows in set (0.38 sec)
+
+mysql> select coursename, sno from t67 where marks > (select avg(marks) from t67) order by courseno;
++------------+------+
+| coursename | sno  |
++------------+------+
+| cricket    |    1 |
+| football   |    2 |
+| kbd        |    3 |
++------------+------+
+3 rows in set (0.59 sec)

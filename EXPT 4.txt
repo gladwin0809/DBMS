@@ -1,0 +1,177 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| clg                |
+| mysql              |
+| performance_schema |
+| school             |
+| test               |
++--------------------+
+6 rows in set (0.66 sec)
+
+mysql> select * from clg;
+ERROR 1046 (3D000): No database selected
+mysql> use clg;
+Database changed
+mysql> show tables;
++---------------+
+| Tables_in_clg |
++---------------+
+| courses       |
+| department    |
+| faculty       |
+| student       |
++---------------+
+4 rows in set (0.11 sec)
+
+mysql> select * from faculty;
++-------+---------+--------+------+------+----------+--------+
+| Facno | Facname | Gender | DOB  | DOJ  | Mobileno | Deptno |
++-------+---------+--------+------+------+----------+--------+
+|   123 | VIJAY   | M      |   10 |   25 |    12128 | CSE    |
+|   124 | KUMARAN | M      |   26 |   10 |    12124 | CSE    |
+|   142 | ANU     | F      |   11 |   16 |   522412 | AI     |
++-------+---------+--------+------+------+----------+--------+
+3 rows in set (0.17 sec)
+
+mysql> select * from faculty where DOJ BETWEEN 124 AND 142;
+Empty set (1.03 sec)
+
+mysql> select * from faculty where DOJ BETWEEN 10 AND 16;
++-------+---------+--------+------+------+----------+--------+
+| Facno | Facname | Gender | DOB  | DOJ  | Mobileno | Deptno |
++-------+---------+--------+------+------+----------+--------+
+|   124 | KUMARAN | M      |   26 |   10 |    12124 | CSE    |
+|   142 | ANU     | F      |   11 |   16 |   522412 | AI     |
++-------+---------+--------+------+------+----------+--------+
+2 rows in set (0.00 sec)
+
+mysql> select * from courses;
++----------+------------+------------+-------+--------+--------+
+| courseno | coursedesc | coursetype | semno | Hallno | Factno |
++----------+------------+------------+-------+--------+--------+
+| A1       | ENGMATH    | core       | 2     | 10     | 11     |
+| A2       | ENGCHEM    | core       | 2     | 11     | 12     |
+| A3       | ENGPHY     | core       | 2     | 12     | 12     |
+| A4       | ETHICS     | core       | 2     | 13     | 14     |
+| A5       | POM        | elec       | 2     | 13     | 15     |
++----------+------------+------------+-------+--------+--------+
+5 rows in set (0.06 sec)
+
+mysql> select * from courses where coursedes="POM";
+ERROR 1054 (42S22): Unknown column 'coursedes' in 'where clause'
+mysql> select * from courses where coursedesc="POM";
++----------+------------+------------+-------+--------+--------+
+| courseno | coursedesc | coursetype | semno | Hallno | Factno |
++----------+------------+------------+-------+--------+--------+
+| A5       | POM        | elec       | 2     | 13     | 15     |
++----------+------------+------------+-------+--------+--------+
+1 row in set (0.00 sec)
+
+mysql> create table t67(sno int, courseno int, coursename varchar(60), marks into(40));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'into(40))' at line 1
+mysql> create table t67(sno int, courseno int, coursename varchar(60), marks int(40));
+Query OK, 0 rows affected (0.48 sec)
+
+mysql> desc t67;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| sno        | int(11)     | YES  |     | NULL    |       |
+| courseno   | int(11)     | YES  |     | NULL    |       |
+| coursename | varchar(60) | YES  |     | NULL    |       |
+| marks      | int(40)     | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+4 rows in set (0.06 sec)
+
+mysql> insert into t67 values(1, 1111 , "cricket", 100);
+Query OK, 1 row affected (1.31 sec)
+
+mysql> insert into t67 values(2, 1112, "football", 100);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into t67 values(3, 1113 "kbd", 88);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"kbd", 88)' at line 1
+mysql> insert into t67 values(3, 1113, "kbd", 88);
+Query OK, 1 row affected (1.78 sec)
+
+mysql> inert into t67 values(4, 1114, "volleyball", 60);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'inert into t67 values(4, 1114, "volleyball", 60)' at line 1
+mysql> insert into t67 values(4, 1114, "volleyball", 60);
+Query OK, 1 row affected (0.50 sec)
+
+mysql> insert into t67 values(5, 1115, "basketball", 40);
+Query OK, 1 row affected (1.34 sec)
+
+mysql> select * from t67;
++------+----------+------------+-------+
+| sno  | courseno | coursename | marks |
++------+----------+------------+-------+
+|    1 |     1111 | cricket    |   100 |
+|    2 |     1112 | football   |   100 |
+|    3 |     1113 | kbd        |    88 |
+|    4 |     1114 | volleyball |    60 |
+|    5 |     1115 | basketball |    40 |
++------+----------+------------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select avg(marks) from t67;
++------------+
+| avg(marks) |
++------------+
+|    77.6000 |
++------------+
+1 row in set (0.13 sec)
+
+mysql> select max(mark) from t67;
+ERROR 1054 (42S22): Unknown column 'mark' in 'field list'
+mysql> select max(marks) from t67;
++------------+
+| max(marks) |
++------------+
+|        100 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select from t67 where marks="100";
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from t67 where marks="100"' at line 1
+mysql> select coursename from t67 where marks="100";
++------------+
+| coursename |
++------------+
+| cricket    |
+| football   |
++------------+
+2 rows in set (0.05 sec)
+
+mysql> select courseno,coursename where marks="80";
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where marks="80"' at line 1
+mysql> select courseno,coursename from t67 where marks="80";
+Empty set (0.00 sec)
+
+mysql> select courseno,coursename from t67 where marks="88";
++----------+------------+
+| courseno | coursename |
++----------+------------+
+|     1113 | kbd        |
++----------+------------+
+1 row in set (0.00 sec)
+
+mysql> select coursename from t67 where marks like "100";
++------------+
+| coursename |
++------------+
+| cricket    |
+| football   |
++------------+
+2 rows in set (0.14 sec)
+
+mysql> select marks from t67 where coursename like "C%";
++-------+
+| marks |
++-------+
+|   100 |
++-------+
+1 row in set (0.00 sec)
